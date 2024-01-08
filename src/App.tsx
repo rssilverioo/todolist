@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoList from './TodoList';
+import { useTodoContext } from './context/TodoContext';
 
 function App() {
+
+
+  const { todos } = useTodoContext();
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1>Todo App</h1>
+    <TodoList />
+    {todos.length > 0 && <p>Total de tarefas: {todos.length}</p>}
+  </div>
   );
 }
 
